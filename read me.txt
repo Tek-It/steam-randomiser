@@ -1,0 +1,2 @@
+use the command below to install all dependecies found in the requirements.txt file
+pip install -r requirements.txt 
