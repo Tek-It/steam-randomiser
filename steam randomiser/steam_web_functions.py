@@ -2,6 +2,9 @@ import os
 import datetime
 import requests
 import time
+
+os.environ["steam_api_key"] = "D6D50CF9FF37AC7B430D59E7A0D25AC5"
+
 vanity_url = "jiltedsnake"
 KEY = "D6D50CF9FF37AC7B430D59E7A0D25AC5"
 list_of_friends = {}
@@ -170,7 +173,7 @@ def randomly_select_game(games_list=get_owned_games(profiles.get_user_profile(no
 def get_games_with_achievements():
     try:
         response = profiles.IPlayerService().get_owned_games(
-            steamID=profiles.get_user_profile(normalize_user_identifier(vanity_url),steam_api_key=KEY,).steamid,
+            steamID=profiles.get_user_profile(normalize_user_identifier(vanity_url),steam_api_key = KEY,).steamid,
             include_appinfo=True,
             include_played_free_games=True
         )
@@ -195,7 +198,7 @@ def get_games_with_achievements():
 def get_achievements(appid):
     try:
         response = profiles.ISteamUserStats().get_player_achievements(
-            steamID=profiles.get_user_profile(normalize_user_identifier(vanity_url),steam_api_key=KEY,).steamid,
+            steamID=profiles.get_user_profile(normalize_user_identifier(vanity_url),steam_api_key = KEY,).steamid,
             appID=appid,
             language="en"
         )
@@ -238,3 +241,4 @@ def process_all_achievements():
             )
 
     return "\n".join(output)
+

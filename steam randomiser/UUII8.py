@@ -84,7 +84,7 @@ def confirm_add_username():
     if swf.vanity_url == "": # if empty/no letter or words
         return
 
-    swf.printfriendslist()
+    friends = swf.list_of_friends
     
     entry_name.delete(0, tk.END)
     entry_name.pack_forget()
